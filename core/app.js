@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMoodWidget();
     initMiniCalendar(); // Inisialisasi kalender
     initEntryHighlights();
+    initEntryEditor();
     // 3. Inisialisasi logika Menu Buat Baru (Tombol Plus)
     initCreateMenu();
 });
