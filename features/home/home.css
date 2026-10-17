@@ -34,9 +34,10 @@
 }
 
 /* Profil & Sapaan */
+/* Profil & Sapaan */
 .profile-greeting-wrapper {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Memastikan header mengikuti tinggi icon */
     gap: 16px;
     margin-bottom: 24px;
 }
@@ -48,22 +49,40 @@
 }
 
 .icon-database, .icon-smiley {
-    width: 50px; height: 50px;
+    width: 60px; height: 60px; /* Sedikit diperbesar */
     display: flex; align-items: center; justify-content: center;
     background-color: var(--bg-color);
     font-weight: 700;
 }
 
 .icon-database span {
-    font-size: 10px;
+    font-size: 11px;
     transform: rotate(-90deg);
 }
 
 .icon-smiley {
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 24px;
 }
 
+/* Kotak Sapaan diperbesar */
+.home-header.scrapbook-card {
+    flex: 1; /* Membuat kotak sapaan mengisi sisa ruang di kanan icon */
+    min-height: 130px; /* Tinggi minimum yang besar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.greeting-text {
+    font-size: 32px; /* Ukuran teks diperbesar */
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.date-text {
+    font-size: 16px;
+}
 /* Akses Cepat */
 .quick-access-grid {
     display: grid;
