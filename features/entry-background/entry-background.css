@@ -1,0 +1,77 @@
+.bg-options-section {
+    margin-bottom: 24px;
+}
+
+.bg-section-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Grid untuk pilihan motif kertas */
+.bg-pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.bg-pattern-btn {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: 2px solid var(--accent-color);
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bg-pattern-btn.active {
+    background-color: var(--accent-color);
+    color: var(--text-main);
+}
+
+/* Pemilih Warna yang membulat dan rapi */
+.color-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--card-bg);
+    padding: 12px;
+    border-radius: 16px;
+    border: 2px solid var(--accent-color);
+}
+
+.color-picker-wrapper span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.large-color-picker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.large-color-picker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 0 2px var(--text-secondary);
+}
+
+.large-color-picker::-moz-color-swatch {
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+    box-shadow: 0 0 0 2px var(--text-secondary);
+}
