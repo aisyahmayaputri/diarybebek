@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./features/mini-calendar/mini-calendar.css">
     <link rel="stylesheet" href="./features/entry-highlights/entry-highlights.css">
     <link rel="stylesheet" href="./features/entry-editor/entry-editor.css">
+    <link rel="stylesheet" href="./features/canvas-draw/canvas-draw.css">
 </head>
 <body>
 
@@ -121,18 +122,35 @@
 
     <!-- Toolbar Bawah (Bisa digeser ke samping / horizontal scroll) -->
     <footer class="editor-toolbar">
-        <div class="toolbar-scroll">
-            <!-- Mode Toggle -->
-            <button id="btn-toggle-draw" class="tool-btn bounce-hover">🖍️ Mode Coret</button>
-            <div class="toolbar-divider"></div>
-            <!-- Alat Teks & Tema -->
-            <button class="tool-btn bounce-hover">Aa</button>
-            <button class="tool-btn bounce-hover">🎨 Latar</button>
-            <button class="tool-btn bounce-hover">📷 Media</button>
-            <button class="tool-btn bounce-hover">⭐ Rating</button>
-            <button class="tool-btn bounce-hover">😊 Mood</button>
-        </div>
-    </footer>
+    <!-- Toolbar Utama Teks/Media -->
+    <div id="main-toolbar" class="toolbar-scroll active-toolbar">
+        <button id="btn-toggle-draw" class="tool-btn bounce-hover">🖍️ Mode Coret</button>
+        <div class="toolbar-divider"></div>
+        <button class="tool-btn bounce-hover">Aa</button>
+        <button class="tool-btn bounce-hover">🎨 Latar</button>
+        <button class="tool-btn bounce-hover">📷 Media</button>
+    </div>
+
+    <!-- Toolbar Khusus Menggambar (Sembunyi secara default) -->
+    <div id="draw-toolbar" class="toolbar-scroll hidden-toolbar">
+        <button id="btn-exit-draw" class="tool-btn bounce-hover active">✍️ Teks</button>
+        <div class="toolbar-divider"></div>
+        
+        <!-- Opsi Alat Coret -->
+        <button class="tool-btn draw-tool active" data-tool="pen" title="Pena Biasa">🖊️</button>
+        <button class="tool-btn draw-tool" data-tool="highlight" title="Highlighter">🖍️</button>
+        <button class="tool-btn draw-tool" data-tool="eraser" title="Penghapus">🧼</button>
+        
+        <!-- Pemilih Warna -->
+        <input type="color" id="color-picker" class="color-picker bounce-hover" value="#3E2723">
+        
+        <div class="toolbar-divider"></div>
+        
+        <!-- Undo & Redo -->
+        <button id="btn-undo" class="icon-btn bounce-hover" disabled>↩️</button>
+        <button id="btn-redo" class="icon-btn bounce-hover" disabled>↪️</button>
+    </div>
+</footer>
 
 </main>
 
