@@ -26,11 +26,13 @@ export function initCreateMenu() {
             const type = e.target.closest('.menu-item').dataset.type;
             console.log(`Pengguna memilih untuk membuat: ${type}`);
             
-            // Animasi tutup menu setelah memilih
-            closeMenu();
-            
-            // Catatan: Transisi ke halaman "Editor" akan di-handle nanti
-            // Tidak ada auto-buka keyboard di sini.
-        });
+           // JIKA YANG DIPILIH ADALAH ENTRY
+        if (type === 'entry' && typeof window.openEditor === 'function') {
+            // Tunggu sedikit agar animasi menu turun selesai, baru buka editor
+            setTimeout(() => {
+                window.openEditor();
+            }, 300);
+        }
     });
+});
 }
