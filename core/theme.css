@@ -1,10 +1,11 @@
 /* Definisi 4 Tema Sesuai Permintaan */
 :root[data-theme="terang"] {
-    --bg-color: #FAFAFA; /* Putih sedikit cream */
-    --text-main: #3E2723; /* Coklat tua */
-    --text-secondary: #795548;
-    --card-bg: #FFFFFF;
-    --accent-color: #D7CCC8; /* Coklat muda */
+    --bg-color: #FFFFFF; /* Putih bersih sesuai sketsa */
+    --card-bg: #FFF7EB; /* Cream hangat untuk kotak-kotak */
+    --text-main: #5D4037; /* Coklat tua untuk teks (tidak hitam) */
+    --text-secondary: #8D6E63;
+    --accent-color: #D7CCC8;
+    --border-color: #3E2723; /* Coklat sangat gelap untuk garis pinggir ala spidol */
 }
 
 :root[data-theme="gelap"] {
