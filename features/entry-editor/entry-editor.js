@@ -1,69 +1,76 @@
 export function initEntryEditor() {
     const homeView = document.getElementById('home-view');
     const editorView = document.getElementById('editor-view');
+    
+    // Elemen Header Editor
     const btnBack = document.getElementById('btn-back-home');
     const btnSave = document.getElementById('btn-save-entry');
     
-    // Elemen Editor
+    // Area Konten Utama
     const contentArea = document.getElementById('editor-content-area');
+    
+    // Elemen Toolbar
+    const mainToolbar = document.getElementById('main-toolbar');
+    const drawToolbar = document.getElementById('draw-toolbar');
     const btnToggleDraw = document.getElementById('btn-toggle-draw');
+    const btnExitDraw = document.getElementById('btn-exit-draw');
 
-    // 1. Fungsi Navigasi (Dipanggil dari create-menu.js nanti)
+    // 1. Fungsi Membuka Editor (Dipanggil dari create-menu.js)
     window.openEditor = function() {
         homeView.classList.remove('active');
         editorView.classList.add('active');
         
-        // PENTING (Aturan F): Teks area di-blur agar keyboard TIDAK terbuka otomatis
+        // PENTING: Cegah keyboard terbuka otomatis (Sesuai Aturan DO NOT)
         document.getElementById('text-layer').blur(); 
+        
+        // Panggil fungsi resizeCanvas yang ada di canvas-draw.js
+        // Diberi delay 300ms agar DOM selesai dirender dan transisi halaman selesai
+        setTimeout(() => {
+            if (window.resizeCanvas) window.resizeCanvas();
+        }, 300);
     };
 
-    // Kembali ke Home
+    // 2. Fungsi Menutup Editor & Kembali ke Home
     const closeEditor = () => {
         editorView.classList.remove('active');
         homeView.classList.add('active');
+        setDrawMode(false); // Reset kembali ke mode teks saat keluar
     };
 
+    // Event Listener Header
     if (btnBack) btnBack.addEventListener('click', closeEditor);
     if (btnSave) btnSave.addEventListener('click', () => {
-        console.log("Menyimpan entri...");
+        console.log("Menyimpan entri ke dalam sistem...");
         closeEditor();
     });
 
-    // 2. Logika Toggle Mode Teks vs Mode Coret
-    let isDrawMode = false;
-
-    if (btnToggleDraw) {
-        btnToggleDraw.addEventListener('click', () => {
-            isDrawMode = !isDrawMode;
+    // 3. Fungsi Pertukaran Mode (Teks ↔ Coret)
+    const setDrawMode = (isActive) => {
+        if (isActive) {
+            // AKTIFKAN MODE CORET
+            contentArea.classList.add('draw-mode-active');
             
-            if (isDrawMode) {
-                // Aktifkan Mode Coret
-                contentArea.classList.add('draw-mode-active');
-                btnToggleDraw.classList.add('active');
-                btnToggleDraw.textContent = "✍️ Kembali ke Teks";
-                
-                // Pastikan keyboard turun jika sedang terbuka
-                document.activeElement.blur(); 
-            } else {
-                // Aktifkan Mode Teks
-                contentArea.classList.remove('draw-mode-active');
-                btnToggleDraw.classList.remove('active');
-                btnToggleDraw.textContent = "🖍️ Mode Coret";
-            }
-        });
-    }
+            // Sembunyikan toolbar utama, tampilkan toolbar menggambar
+            mainToolbar.classList.remove('active-toolbar');
+            mainToolbar.classList.add('hidden-toolbar');
+            drawToolbar.classList.remove('hidden-toolbar');
+            drawToolbar.classList.add('active-toolbar');
+            
+            // Paksa keyboard menutup jika pengguna sedang mengetik
+            document.activeElement.blur(); 
+        } else {
+            // KEMBALI KE MODE TEKS
+            contentArea.classList.remove('draw-mode-active');
+            
+            // Sembunyikan toolbar menggambar, tampilkan toolbar utama
+            drawToolbar.classList.remove('active-toolbar');
+            drawToolbar.classList.add('hidden-toolbar');
+            mainToolbar.classList.remove('hidden-toolbar');
+            mainToolbar.classList.add('active-toolbar');
+        }
+    };
 
-    // 3. Setup awal Canvas (Hanya menyiapkan ukuran kanvas agar tidak pecah)
-    const canvas = document.getElementById('draw-layer');
-    if (canvas) {
-        // Sesuaikan ukuran kanvas dengan ukuran pembungkusnya
-        const resizeCanvas = () => {
-            canvas.width = contentArea.clientWidth;
-            canvas.height = contentArea.clientHeight;
-        };
-        // Panggil saat editor dibuka/di-resize
-        window.addEventListener('resize', resizeCanvas);
-        // Timeout sedikit untuk memastikan DOM sudah dirender penuh
-        setTimeout(resizeCanvas, 100); 
-    }
+    // Event Listener Tombol Toolbar
+    if (btnToggleDraw) btnToggleDraw.addEventListener('click', () => setDrawMode(true));
+    if (btnExitDraw) btnExitDraw.addEventListener('click', () => setDrawMode(false));
 }
