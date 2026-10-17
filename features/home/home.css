@@ -1,50 +1,123 @@
-.home-header {
-    margin-bottom: 32px;
+/* --- Efek Coretan Tangan (Hand-drawn) --- */
+.hand-drawn {
+    border: 3px solid var(--border-color);
+    /* Trik CSS membuat border tidak simetris layaknya digambar tangan */
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; 
 }
 
-.greeting-text {
-    font-size: 28px;
+.scrapbook-card {
+    background-color: var(--card-bg);
+    border: 3px solid var(--border-color);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    padding: 20px;
+    box-shadow: 6px 6px 0px rgba(93, 64, 55, 0.15); /* Bayangan tegas */
+}
+
+/* --- Layout Utama --- */
+.app-title-badge {
+    position: absolute;
+    top: 20px; right: 40px;
+    background-color: var(--card-bg);
+    padding: 10px 20px;
+    font-size: 24px;
     font-weight: 700;
+    transform: rotate(3deg);
+    z-index: 10;
+}
+
+.scrapbook-layout {
+    display: flex;
+    flex-direction: column; /* Default Mobile: Kolom memanjang */
+    gap: 30px;
+    padding-top: 60px;
+    padding-bottom: 120px; /* Ruang untuk FAB */
+}
+
+/* Profil & Sapaan */
+.profile-greeting-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.profile-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.icon-database, .icon-smiley {
+    width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center;
+    background-color: var(--bg-color);
+    font-weight: 700;
+}
+
+.icon-database span {
+    font-size: 10px;
+    transform: rotate(-90deg);
+}
+
+.icon-smiley {
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+/* Akses Cepat */
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.qa-btn {
+    background-color: var(--bg-color);
+    padding: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+/* Sorotan Tahunan */
+.highlight-title {
+    font-size: 28px;
     margin-bottom: 8px;
 }
 
-.date-text {
-    font-size: 16px;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.quick-access {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
-}
-
-.access-card {
+.small-btn {
     background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 20px; /* Bentuk membulat menambah kesan cute */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    text-align: center;
+    padding: 6px 12px;
+    margin-top: -10px; /* Menempel sedikit ke kartu atasnya */
+    margin-left: 20px;
+    font-family: inherit;
     font-weight: 600;
-    border: 2px solid transparent;
+    font-size: 12px;
+    color: var(--text-main);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
-/* Floating Action Button (Tombol Plus) */
-.fab-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: var(--accent-color);
-    color: var(--text-main);
-    border: none;
-    font-size: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+/* --- Layout Desktop (Lebar Layar > 768px) --- */
+@media (min-width: 768px) {
+    .scrapbook-layout {
+        flex-direction: row; /* Bersebelahan untuk Desktop */
+        justify-content: space-between;
+    }
+    
+    .scrapbook-col-left {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .scrapbook-col-right {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
 }
