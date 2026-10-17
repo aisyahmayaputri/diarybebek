@@ -21,6 +21,29 @@
     color: var(--text-main);
     font-weight: 700;
 }
+/* Tambahkan ini di dalam mini-calendar.css */
+.calendar-title-text {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.washi-tape {
+    width: 100px;
+    height: 25px;
+    background-color: rgba(215, 204, 200, 0.8); /* Warna selotip semi transparan */
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+/* Pastikan .calendar-card punya position: relative */
+.calendar-card {
+    position: relative;
+}
 
 .nav-btn {
     background: var(--accent-color);
