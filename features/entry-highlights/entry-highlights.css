@@ -1,0 +1,130 @@
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.text-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Scroll Menyamping untuk Buku & Film */
+.horizontal-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px; /* Memberi ruang untuk bayangan */
+    scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar di Chrome/Safari */
+}
+
+/* Desain Kartu Buku & Film */
+.highlight-card {
+    min-width: 140px;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 2px solid transparent;
+}
+
+.highlight-cover {
+    width: 100%;
+    aspect-ratio: 3/4; /* Proporsi cover buku/poster film */
+    background-color: var(--accent-color);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.highlight-info .title {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.highlight-info .rating {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Desain Daftar Jurnal */
+.vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 80px; /* Ruang agar tidak tertutup tombol Plus */
+}
+
+.journal-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 2px solid transparent;
+}
+
+.journal-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.journal-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.journal-preview {
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Batasi maksimal 2 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.journal-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.tag-badge {
+    background-color: var(--accent-color);
+    color: var(--text-main);
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: 700;
+}
