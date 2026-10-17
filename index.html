@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./features/entry-highlights/entry-highlights.css">
     <link rel="stylesheet" href="./features/entry-editor/entry-editor.css">
     <link rel="stylesheet" href="./features/canvas-draw/canvas-draw.css">
+    <link rel="stylesheet" href="./features/entry-background/entry-background.css">
 </head>
 <body>
 
@@ -98,7 +99,7 @@
     
     <!-- Header Editor -->
     <header class="editor-header">
-        <button id="btn-back-home" class="icon-btn bounce-hover" aria-label="Kembali">⬅️</button>
+        <button id="btn-theme-bg" class="tool-btn bounce-hover">🎨 Latar</button>
         <div class="editor-meta">
             <span class="entry-date">18 Okt 2026</span>
             <span class="entry-status">Belum disimpan</span>
@@ -166,6 +167,30 @@
             <button class="menu-item bounce-hover" data-type="tag">🏷️ Tag Baru</button>
         </div>
     </div>
+    <!-- FITUR BARU: Menu Latar Belakang Entri -->
+<div id="bg-menu-overlay" class="overlay hidden"></div>
+<div id="bg-menu" class="create-menu hidden">
+    <div class="menu-drag-handle"></div>
+    <h3 class="menu-title">Pilih Latar Entri</h3>
+    
+    <div class="bg-options-section">
+        <p class="bg-section-label">Motif Kertas</p>
+        <div class="bg-pattern-grid">
+            <button class="bg-pattern-btn active" data-pattern="polos">Polos</button>
+            <button class="bg-pattern-btn" data-pattern="dots">Dots</button>
+            <button class="bg-pattern-btn" data-pattern="grid">Grid</button>
+        </div>
+    </div>
+
+    <div class="bg-options-section">
+        <p class="bg-section-label">Warna Latar Belakang</p>
+        <!-- Memanfaatkan input color bawaan agar bebas pilih warna tanpa batas -->
+        <div class="color-picker-wrapper">
+            <input type="color" id="bg-color-picker" class="large-color-picker bounce-hover" value="#FFFFFF">
+            <span>Pilih Warna Kustom</span>
+        </div>
+    </div>
+</div>
 
     <!-- JS Utama Terpisah menggunakan tipe modul -->
     <script type="module" src="./core/app.js"></script>
