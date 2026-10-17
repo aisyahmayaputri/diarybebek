@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./features/create-menu/create-menu.css">
     <link rel="stylesheet" href="./features/mood-widget/mood-widget.css">
     <link rel="stylesheet" href="./features/mini-calendar/mini-calendar.css">
+    <link rel="stylesheet" href="./features/entry-highlights/entry-highlights.css">
 </head>
 <body>
 
@@ -62,7 +63,28 @@
             <!-- Tanggal akan di-generate oleh JS -->
         </div>
     </div>
-</section>        
+</section>
+        <!-- FITUR BARU: Buku & Film Tahunan (Scroll Menyamping) -->
+<section class="highlights-section">
+    <div class="section-header">
+        <h2 class="section-title">Sorotan Tahunan 🎬📚</h2>
+        <button class="text-btn">Lihat Semua</button>
+    </div>
+    <div id="yearly-highlights-container" class="horizontal-scroll">
+        <!-- Kartu Film & Buku akan di-generate oleh JS -->
+    </div>
+</section>
+
+<!-- FITUR BARU: Jurnal Terbaru -->
+<section class="recent-journal-section">
+    <div class="section-header">
+        <h2 class="section-title">Jurnal Terbaru 📝</h2>
+        <button class="text-btn">Librari</button>
+    </div>
+    <div id="recent-journal-container" class="vertical-list">
+        <!-- Kartu Jurnal akan di-generate oleh JS -->
+    </div>
+</section>
 
         <!-- Tombol Plus (Entry Baru) -->
         <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Entri Baru">
