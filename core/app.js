@@ -1,19 +1,15 @@
-// Mengimpor fungsi dari modul Home
+// Mengimpor fungsi dari berbagai modul terpisah
 import { initHome } from '../features/home/home.js';
+import { initCreateMenu } from '../features/create-menu/create-menu.js';
+import { initMoodWidget } from '../features/mood-widget/mood-widget.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Inisialisasi halaman Home
+    // 1. Inisialisasi logika Halaman Home (Tanggal & Sapaan)
     initHome();
 
-    // 2. Setup Tombol Plus (Sementara hanya console log untuk tes)
-    const btnAdd = document.getElementById('btn-add-new');
-    if (btnAdd) {
-        btnAdd.addEventListener('click', () => {
-            console.log("Menu Opsi Entri/Folder/Tag Baru Akan Terbuka Disini");
-            // Catatan: Tidak ada kode fokus ke keyboard di sini sesuai aturan DO NOT!
-        });
-    }
+    // 2. Inisialisasi widget Mood
+    initMoodWidget();
 
-    // (Contoh untuk nanti: Logika mengganti tema bisa dipanggil dari sini)
-    // document.documentElement.setAttribute('data-theme', 'autumn');
+    // 3. Inisialisasi logika Menu Buat Baru (Tombol Plus)
+    initCreateMenu();
 });
