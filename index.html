@@ -28,67 +28,102 @@
 <body>
 
     <!-- ========================================== -->
-    <!-- 1. HALAMAN UTAMA (HOME)                    -->
+    <!-- 1. HALAMAN UTAMA (HOME) - SCRAPBOOK STYLE  -->
     <!-- ========================================== -->
     <main id="home-view" class="view-container active">
         
-        <!-- Sapaan & Tanggal -->
-        <header class="home-header">
-            <h1 id="daily-greeting" class="greeting-text">Selamat...</h1>
-            <p id="current-date" class="date-text">Memuat tanggal...</p>
-        </header>
-
-        <!-- Mood Hari Ini -->
-        <section class="mood-section">
-            <h2 class="section-title">Bagaimana suasana hatimu hari ini?</h2>
-            <p class="section-subtitle">Bisa pilih lebih dari satu!</p>
-            <div id="mood-container" class="mood-container"></div>
-        </section>
-
-        <!-- Akses Cepat -->
-        <section class="quick-access">
-            <div class="access-card bounce-hover">Pencarian</div>
-            <div class="access-card bounce-hover">Galeri</div>
-            <div class="access-card bounce-hover">Statistik</div>
-            <div class="access-card bounce-hover">Tag</div>
-        </section>
-
-        <!-- Kalender Mini -->
-        <section class="calendar-section">
-            <div class="calendar-card">
-                <div class="calendar-header">
-                    <button id="prev-month" class="nav-btn bounce-hover">&lt;</button>
-                    <h2 id="calendar-month-year" class="calendar-title">Oktober 2026</h2>
-                    <button id="next-month" class="nav-btn bounce-hover">&gt;</button>
+        <!-- Judul Aplikasi -->
+        <div class="app-title-badge hand-drawn">Diary Bebek</div>
+        
+        <div class="scrapbook-layout">
+            <!-- Kolom Kiri (Profil, Mood, Sorotan) -->
+            <div class="scrapbook-col-left">
+                
+                <!-- Profil & Sapaan -->
+                <div class="profile-greeting-wrapper">
+                    <div class="profile-icons">
+                        <div class="icon-database hand-drawn bounce-hover">
+                            <span>My entries</span>
+                        </div>
+                        <div class="icon-smiley hand-drawn bounce-hover">^^</div>
+                    </div>
+                    <header class="home-header scrapbook-card bounce-hover">
+                        <h1 id="daily-greeting" class="greeting-text">Selamat...</h1>
+                        <p id="current-date" class="date-text">Memuat...</p>
+                    </header>
                 </div>
-                <div class="calendar-weekdays">
-                    <span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span>
-                </div>
-                <div id="calendar-days" class="calendar-days"></div>
+
+                <!-- Mood Tracker (Bentuk Bubble Speech) -->
+                <section class="mood-section scrapbook-bubble">
+                    <h2 class="section-title">Bagaimana mood hari ini?</h2>
+                    <div id="mood-container" class="mood-container">
+                        <!-- 15 Mood di-generate oleh JS (mood-widget.js) -->
+                    </div>
+                </section>
+
+                <!-- Sorotan Tahunan -->
+                <section class="highlights-section">
+                    <div class="highlight-wrapper bounce-hover">
+                        <div class="scrapbook-card highlight-card">
+                            <h2 class="highlight-title">Movie of the year</h2>
+                            <!-- Tempat data film terbaik -->
+                        </div>
+                        <button class="small-btn hand-drawn bounce-hover">Lihat semua film 🎬</button>
+                    </div>
+
+                    <div class="highlight-wrapper bounce-hover" style="margin-top: 20px;">
+                        <div class="scrapbook-card highlight-card">
+                            <h2 class="highlight-title">Book of the year</h2>
+                            <!-- Tempat data buku terbaik -->
+                        </div>
+                        <button class="small-btn hand-drawn bounce-hover">Lihat semua buku 📚</button>
+                    </div>
+                </section>
+
             </div>
-        </section>
 
-        <!-- Sorotan Tahunan (Buku & Film) -->
-        <section class="highlights-section">
-            <div class="section-header">
-                <h2 class="section-title">Sorotan Tahunan 🎬📚</h2>
-                <button class="text-btn">Lihat Semua</button>
+            <!-- Kolom Kanan (Kalender, Akses Cepat) -->
+            <div class="scrapbook-col-right">
+                
+                <!-- Kalender Mini dengan Washi Tape -->
+                <section class="calendar-section">
+                    <div class="calendar-card scrapbook-card">
+                        <div class="washi-tape"></div>
+                        <h2 class="calendar-title-text">Calendar mini</h2>
+                        <div class="calendar-header">
+                            <button id="prev-month" class="nav-btn bounce-hover">&lt;</button>
+                            <h2 id="calendar-month-year" class="calendar-title">Okt 2026</h2>
+                            <button id="next-month" class="nav-btn bounce-hover">&gt;</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <span>M</span><span>S</span><span>S</span><span>R</span><span>K</span><span>J</span><span>S</span>
+                        </div>
+                        <div id="calendar-days" class="calendar-days"></div>
+                    </div>
+                </section>
+
+                <!-- Menu Akses Cepat -->
+                <section class="quick-access-section scrapbook-card">
+                    <div class="quick-access-grid">
+                        <button class="qa-btn hand-drawn bounce-hover">Library</button>
+                        <button class="qa-btn hand-drawn bounce-hover">Gallery</button>
+                        <button class="qa-btn hand-drawn bounce-hover">Tags</button>
+                        <button class="qa-btn hand-drawn bounce-hover">Events</button>
+                    </div>
+                </section>
+
             </div>
-            <div id="yearly-highlights-container" class="horizontal-scroll"></div>
-        </section>
+        </div>
 
-        <!-- Jurnal Terbaru -->
-        <section class="recent-journal-section">
-            <div class="section-header">
-                <h2 class="section-title">Jurnal Terbaru 📝</h2>
-                <button class="text-btn">Librari</button>
+        <!-- Tombol Plus (FAB) dengan Animasi 3 Cabang -->
+        <div class="fab-container">
+            <div id="fab-branches" class="fab-branches">
+                <button class="fab-branch-btn hand-drawn bounce-hover branch-1" data-type="entry">New entries</button>
+                <button class="fab-branch-btn hand-drawn bounce-hover branch-2" data-type="folder">New folder</button>
+                <button class="fab-branch-btn hand-drawn bounce-hover branch-3" data-type="tag">New tag</button>
             </div>
-            <div id="recent-journal-container" class="vertical-list"></div>
-        </section>
-
-        <!-- Tombol Plus (Entry Baru) -->
-        <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Entri Baru">+</button>
-
+            <button id="btn-add-new" class="fab-button hand-drawn bounce-hover" aria-label="Buat Baru">+</button>
+        </div>
     </main>
 
 
@@ -139,3 +174,65 @@
                 <button class="tool-btn draw-tool active" data-tool="pen" title="Pena Biasa">🖊️</button>
                 <button class="tool-btn draw-tool" data-tool="highlight" title="Highlighter">🖍️</button>
                 <button class="tool-btn draw-tool" data-tool="eraser" title="Penghapus">🧼</button>
+                <input type="color" id="color-picker" class="color-picker bounce-hover" value="#3E2723">
+                <div class="toolbar-divider"></div>
+                <button id="btn-undo" class="icon-btn bounce-hover" disabled>↩️</button>
+                <button id="btn-redo" class="icon-btn bounce-hover" disabled>↪️</button>
+            </div>
+
+            <!-- Toolbar Format Teks -->
+            <div id="format-toolbar" class="toolbar-scroll hidden-toolbar">
+                <button id="btn-exit-format" class="tool-btn bounce-hover active">🔙 Kembali</button>
+                <div class="toolbar-divider"></div>
+                <button class="format-btn tool-btn" data-command="bold" title="Tebal"><b>B</b></button>
+                <button class="format-btn tool-btn" data-command="italic" title="Miring"><i>I</i></button>
+                <button class="format-btn tool-btn" data-command="underline" title="Garis Bawah"><u>U</u></button>
+                <button class="format-btn tool-btn" data-command="strikeThrough" title="Coret Text"><s>S</s></button>
+                <div class="toolbar-divider"></div>
+                <button class="format-btn tool-btn" data-command="insertUnorderedList" title="Bullet List">● List</button>
+                <button class="format-btn tool-btn" data-command="insertOrderedList" title="Number List">1. List</button>
+                <button class="format-btn tool-btn" data-command="formatBlock" data-value="blockquote" title="Kutipan">"" Quote</button>
+                <div class="toolbar-divider"></div>
+                <div class="text-color-wrapper" title="Warna Teks">
+                    <span>Teks</span>
+                    <input type="color" id="text-color-picker" class="small-color-picker bounce-hover" value="#3E2723">
+                </div>
+                <div class="text-color-wrapper" title="Warna Sorotan">
+                    <span>Sorot</span>
+                    <input type="color" id="text-highlight-picker" class="small-color-picker bounce-hover" value="#FFD93D">
+                </div>
+            </div>
+
+        </footer>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 3. OVERLAYS & POP-UP MENUS                 -->
+    <!-- ========================================== -->
+    
+    <!-- Menu Latar Entri (Editor) -->
+    <div id="bg-menu-overlay" class="overlay hidden"></div>
+    <div id="bg-menu" class="create-menu hidden">
+        <div class="menu-drag-handle"></div>
+        <h3 class="menu-title">Pilih Latar Entri</h3>
+        <div class="bg-options-section">
+            <p class="bg-section-label">Motif Kertas</p>
+            <div class="bg-pattern-grid">
+                <button class="bg-pattern-btn active" data-pattern="polos">Polos</button>
+                <button class="bg-pattern-btn" data-pattern="dots">Dots</button>
+                <button class="bg-pattern-btn" data-pattern="grid">Grid</button>
+            </div>
+        </div>
+        <div class="bg-options-section">
+            <p class="bg-section-label">Warna Latar Belakang</p>
+            <div class="color-picker-wrapper">
+                <input type="color" id="bg-color-picker" class="large-color-picker bounce-hover" value="#FFFFFF">
+                <span>Pilih Warna Kustom</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Terpisah menggunakan tipe modul -->
+    <script type="module" src="./core/app.js"></script>
+</body>
+</html>
