@@ -5,194 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Journal</title>
     
-    <!-- Google Fonts: Menggunakan Quicksand untuk kesan "Cute-coded" tapi tetap bersih -->
+    <!-- Google Fonts: Quicksand untuk kesan "Cute-coded" -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Core & Shared CSS -->
     <link rel="stylesheet" href="./core/theme.css">
     <link rel="stylesheet" href="./shared/global.css">
     
-    <!-- Features CSS -->
+    <!-- Features CSS (Home) -->
     <link rel="stylesheet" href="./features/home/home.css">
     <link rel="stylesheet" href="./features/create-menu/create-menu.css">
     <link rel="stylesheet" href="./features/mood-widget/mood-widget.css">
     <link rel="stylesheet" href="./features/mini-calendar/mini-calendar.css">
     <link rel="stylesheet" href="./features/entry-highlights/entry-highlights.css">
+    
+    <!-- Features CSS (Editor) -->
     <link rel="stylesheet" href="./features/entry-editor/entry-editor.css">
     <link rel="stylesheet" href="./features/canvas-draw/canvas-draw.css">
     <link rel="stylesheet" href="./features/entry-background/entry-background.css">
+    <link rel="stylesheet" href="./features/text-format/text-format.css">
 </head>
 <body>
 
-    <!-- Container Utama Halaman Home -->
+    <!-- ========================================== -->
+    <!-- 1. HALAMAN UTAMA (HOME)                    -->
+    <!-- ========================================== -->
     <main id="home-view" class="view-container active">
         
-        <!-- Bagian Atas: Sapaan & Tanggal -->
+        <!-- Sapaan & Tanggal -->
         <header class="home-header">
             <h1 id="daily-greeting" class="greeting-text">Selamat...</h1>
             <p id="current-date" class="date-text">Memuat tanggal...</p>
         </header>
 
-        <!-- Bagian Mood Hari Ini -->
+        <!-- Mood Hari Ini -->
         <section class="mood-section">
             <h2 class="section-title">Bagaimana suasana hatimu hari ini?</h2>
             <p class="section-subtitle">Bisa pilih lebih dari satu!</p>
-            <div id="mood-container" class="mood-container">
-                <!-- Tombol-tombol mood akan di-generate oleh JS (mood-widget.js) -->
-            </div>
+            <div id="mood-container" class="mood-container"></div>
         </section>
 
-        <!-- Bagian Akses Cepat -->
+        <!-- Akses Cepat -->
         <section class="quick-access">
             <div class="access-card bounce-hover">Pencarian</div>
             <div class="access-card bounce-hover">Galeri</div>
             <div class="access-card bounce-hover">Statistik</div>
             <div class="access-card bounce-hover">Tag</div>
         </section>
-<!-- FITUR BARU: Kalender Mini -->
-      <section class="calendar-section">
-          <div class="calendar-card">
-          <div class="calendar-header">
-            <button id="prev-month" class="nav-btn bounce-hover">&lt;</button>
-            <h2 id="calendar-month-year" class="calendar-title">Oktober 2026</h2>
-            <button id="next-month" class="nav-btn bounce-hover">&gt;</button>
-        </div>
-        
-        <div class="calendar-weekdays">
-            <span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span>
-        </div>
-        
-        <div id="calendar-days" class="calendar-days">
-            <!-- Tanggal akan di-generate oleh JS -->
-        </div>
-    </div>
-</section>
-        <!-- FITUR BARU: Buku & Film Tahunan (Scroll Menyamping) -->
-<section class="highlights-section">
-    <div class="section-header">
-        <h2 class="section-title">Sorotan Tahunan 🎬📚</h2>
-        <button class="text-btn">Lihat Semua</button>
-    </div>
-    <div id="yearly-highlights-container" class="horizontal-scroll">
-        <!-- Kartu Film & Buku akan di-generate oleh JS -->
-    </div>
-</section>
 
-<!-- FITUR BARU: Jurnal Terbaru -->
-<section class="recent-journal-section">
-    <div class="section-header">
-        <h2 class="section-title">Jurnal Terbaru 📝</h2>
-        <button class="text-btn">Librari</button>
-    </div>
-    <div id="recent-journal-container" class="vertical-list">
-        <!-- Kartu Jurnal akan di-generate oleh JS -->
-    </div>
-</section>
+        <!-- Kalender Mini -->
+        <section class="calendar-section">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <button id="prev-month" class="nav-btn bounce-hover">&lt;</button>
+                    <h2 id="calendar-month-year" class="calendar-title">Oktober 2026</h2>
+                    <button id="next-month" class="nav-btn bounce-hover">&gt;</button>
+                </div>
+                <div class="calendar-weekdays">
+                    <span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span>
+                </div>
+                <div id="calendar-days" class="calendar-days"></div>
+            </div>
+        </section>
+
+        <!-- Sorotan Tahunan (Buku & Film) -->
+        <section class="highlights-section">
+            <div class="section-header">
+                <h2 class="section-title">Sorotan Tahunan 🎬📚</h2>
+                <button class="text-btn">Lihat Semua</button>
+            </div>
+            <div id="yearly-highlights-container" class="horizontal-scroll"></div>
+        </section>
+
+        <!-- Jurnal Terbaru -->
+        <section class="recent-journal-section">
+            <div class="section-header">
+                <h2 class="section-title">Jurnal Terbaru 📝</h2>
+                <button class="text-btn">Librari</button>
+            </div>
+            <div id="recent-journal-container" class="vertical-list"></div>
+        </section>
 
         <!-- Tombol Plus (Entry Baru) -->
-        <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Entri Baru">
-            +
-        </button>
+        <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Entri Baru">+</button>
 
     </main>
+
+
+    <!-- ========================================== -->
+    <!-- 2. HALAMAN EDITOR JURNAL                   -->
+    <!-- ========================================== -->
     <main id="editor-view" class="view-container">
-    
-    <!-- Header Editor -->
-    <header class="editor-header">
-        <button id="btn-theme-bg" class="tool-btn bounce-hover">🎨 Latar</button>
-        <div class="editor-meta">
-            <span class="entry-date">18 Okt 2026</span>
-            <span class="entry-status">Belum disimpan</span>
-        </div>
-        <button id="btn-save-entry" class="text-btn bounce-hover">Selesai</button>
-    </header>
-
-    <!-- Area Konten (Tempat Menulis & Mencoret) -->
-    <!-- data-entry-bg digunakan untuk kustomisasi latar belakang per-entri -->
-    <div id="editor-content-area" class="editor-content" data-entry-bg="polos">
         
-        <!-- Lapisan Teks: contenteditable="true" agar bisa diketik -->
-        <div id="text-layer" class="text-layer" contenteditable="true">
-            <h1 class="entry-title-input" data-placeholder="Judul Entri..."></h1>
-            <p class="entry-body-input" data-placeholder="Mulai menulis cerita hari ini..."></p>
+        <!-- Header Editor -->
+        <header class="editor-header">
+            <button id="btn-back-home" class="icon-btn bounce-hover" aria-label="Kembali">⬅️</button>
+            <div class="editor-meta">
+                <span class="entry-date">18 Okt 2026</span>
+                <span class="entry-status">Belum disimpan</span>
+            </div>
+            <button id="btn-save-entry" class="text-btn bounce-hover">Selesai</button>
+        </header>
+
+        <!-- Area Konten (Kanvas & Teks) -->
+        <div id="editor-content-area" class="editor-content" data-entry-bg="polos">
+            <!-- Lapisan Teks -->
+            <div id="text-layer" class="text-layer" contenteditable="true">
+                <h1 class="entry-title-input" data-placeholder="Judul Entri..."></h1>
+                <p class="entry-body-input" data-placeholder="Mulai menulis cerita hari ini..."></p>
+            </div>
+            <!-- Lapisan Coretan -->
+            <canvas id="draw-layer" class="draw-layer"></canvas>
         </div>
 
-        <!-- Lapisan Coretan: Kanvas yang menimpa teks -->
-        <canvas id="draw-layer" class="draw-layer"></canvas>
-    </div>
+        <!-- Toolbar Bawah -->
+        <footer class="editor-toolbar">
+            
+            <!-- Toolbar Utama -->
+            <div id="main-toolbar" class="toolbar-scroll active-toolbar">
+                <button id="btn-toggle-draw" class="tool-btn bounce-hover">🖍️ Mode Coret</button>
+                <div class="toolbar-divider"></div>
+                <button id="btn-toggle-format" class="tool-btn bounce-hover">Aa</button>
+                <button id="btn-theme-bg" class="tool-btn bounce-hover">🎨 Latar</button>
+                <button class="tool-btn bounce-hover">📷 Media</button>
+                <button class="tool-btn bounce-hover">⭐ Rating</button>
+                <button class="tool-btn bounce-hover">😊 Mood</button>
+            </div>
 
-    <!-- Toolbar Bawah (Bisa digeser ke samping / horizontal scroll) -->
-    <footer class="editor-toolbar">
-    <!-- Toolbar Utama Teks/Media -->
-    <div id="main-toolbar" class="toolbar-scroll active-toolbar">
-        <button id="btn-toggle-draw" class="tool-btn bounce-hover">🖍️ Mode Coret</button>
-        <div class="toolbar-divider"></div>
-        <button class="tool-btn bounce-hover">Aa</button>
-        <button class="tool-btn bounce-hover">🎨 Latar</button>
-        <button class="tool-btn bounce-hover">📷 Media</button>
-    </div>
-
-    <!-- Toolbar Khusus Menggambar (Sembunyi secara default) -->
-    <div id="draw-toolbar" class="toolbar-scroll hidden-toolbar">
-        <button id="btn-exit-draw" class="tool-btn bounce-hover active">✍️ Teks</button>
-        <div class="toolbar-divider"></div>
-        
-        <!-- Opsi Alat Coret -->
-        <button class="tool-btn draw-tool active" data-tool="pen" title="Pena Biasa">🖊️</button>
-        <button class="tool-btn draw-tool" data-tool="highlight" title="Highlighter">🖍️</button>
-        <button class="tool-btn draw-tool" data-tool="eraser" title="Penghapus">🧼</button>
-        
-        <!-- Pemilih Warna -->
-        <input type="color" id="color-picker" class="color-picker bounce-hover" value="#3E2723">
-        
-        <div class="toolbar-divider"></div>
-        
-        <!-- Undo & Redo -->
-        <button id="btn-undo" class="icon-btn bounce-hover" disabled>↩️</button>
-        <button id="btn-redo" class="icon-btn bounce-hover" disabled>↪️</button>
-    </div>
-</footer>
-
-</main>
-
-    <!-- Overlay dan Menu Pop-up Buat Baru (Berada di luar <main> agar bisa menutupi layar) -->
-    <div id="create-menu-overlay" class="overlay hidden"></div>
-    
-    <div id="create-menu" class="create-menu hidden">
-        <div class="menu-drag-handle"></div>
-        <h3 class="menu-title">Buat Sesuatu yang Baru</h3>
-        <div class="menu-options">
-            <button class="menu-item bounce-hover" data-type="entry">📝 Entri Jurnal</button>
-            <button class="menu-item bounce-hover" data-type="folder">📁 Folder Baru</button>
-            <button class="menu-item bounce-hover" data-type="tag">🏷️ Tag Baru</button>
-        </div>
-    </div>
-    <!-- FITUR BARU: Menu Latar Belakang Entri -->
-<div id="bg-menu-overlay" class="overlay hidden"></div>
-<div id="bg-menu" class="create-menu hidden">
-    <div class="menu-drag-handle"></div>
-    <h3 class="menu-title">Pilih Latar Entri</h3>
-    
-    <div class="bg-options-section">
-        <p class="bg-section-label">Motif Kertas</p>
-        <div class="bg-pattern-grid">
-            <button class="bg-pattern-btn active" data-pattern="polos">Polos</button>
-            <button class="bg-pattern-btn" data-pattern="dots">Dots</button>
-            <button class="bg-pattern-btn" data-pattern="grid">Grid</button>
-        </div>
-    </div>
-
-    <div class="bg-options-section">
-        <p class="bg-section-label">Warna Latar Belakang</p>
-        <!-- Memanfaatkan input color bawaan agar bebas pilih warna tanpa batas -->
-        <div class="color-picker-wrapper">
-            <input type="color" id="bg-color-picker" class="large-color-picker bounce-hover" value="#FFFFFF">
-            <span>Pilih Warna Kustom</span>
-        </div>
-    </div>
-</div>
-
-    <!-- JS Utama Terpisah menggunakan tipe modul -->
-    <script type="module" src="./core/app.js"></script>
-</body>
-</html>
+            <!-- Toolbar Menggambar -->
+            <div id="draw-toolbar" class="toolbar-scroll hidden-toolbar">
+                <button id="btn-exit-draw" class="tool-btn bounce-hover active">✍️ Teks</button>
+                <div class="toolbar-divider"></div>
+                <button class="tool-btn draw-tool active" data-tool="pen" title="Pena Biasa">🖊️</button>
+                <button class="tool-btn draw-tool" data-tool="highlight" title="Highlighter">🖍️</button>
+                <button class="tool-btn draw-tool" data-tool="eraser" title="Penghapus">🧼</button>
