@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="terang"> <!-- Default tema: Terang -->
+<html lang="en" data-theme="terang">
 <head>
+    <!-- ... (Head yang sebelumnya tetap sama) ... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Journal</title>
     
-    <!-- Google Fonts: Menggunakan Quicksand untuk kesan "Cute-coded" tapi tetap bersih -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- CSS Terpisah -->
     <link rel="stylesheet" href="./core/theme.css">
     <link rel="stylesheet" href="./shared/global.css">
     <link rel="stylesheet" href="./features/home/home.css">
+    
+    <!-- CSS Baru Ditambahkan Di Sini -->
+    <link rel="stylesheet" href="./features/create-menu/create-menu.css">
+    <link rel="stylesheet" href="./features/mood-widget/mood-widget.css">
 </head>
 <body>
 
-    <!-- Container Utama Halaman Home -->
     <main id="home-view" class="view-container active">
-        
-        <!-- Bagian Atas: Sapaan & Tanggal -->
-        <header class="home-header">
-            <h1 id="daily-greeting" class="greeting-text">Selamat...</h1>
-            <p id="current-date" class="date-text">Memuat tanggal...</p>
-        </header>
+        <!-- ... (Header Sapaan & Quick Access sebelumnya tetap ada di sini) ... -->
 
-        <!-- Bagian Akses Cepat -->
-        <section class="quick-access">
-            <div class="access-card bounce-hover">Pencarian</div>
-            <div class="access-card bounce-hover">Galeri</div>
-            <div class="access-card bounce-hover">Statistik</div>
-            <div class="access-card bounce-hover">Tag</div>
+        <!-- FITUR BARU: Mood Hari Ini -->
+        <section class="mood-section">
+            <h2 class="section-title">Bagaimana suasana hatimu hari ini?</h2>
+            <p class="section-subtitle">Bisa pilih lebih dari satu!</p>
+            <div id="mood-container" class="mood-container">
+                <!-- Tombol-tombol mood akan di-generate oleh JS agar rapi -->
+            </div>
         </section>
 
         <!-- Tombol Plus (Entry Baru) -->
-        <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Entri Baru">
+        <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Baru">
             +
         </button>
-
     </main>
 
-    <!-- JS Terpisah menggunakan tipe modul -->
+    <!-- FITUR BARU: Menu Pop-up Buat Baru (Overlay) -->
+    <div id="create-menu-overlay" class="overlay hidden"></div>
+    <div id="create-menu" class="create-menu hidden">
+        <div class="menu-drag-handle"></div>
+        <h3 class="menu-title">Buat Sesuatu yang Baru</h3>
+        <div class="menu-options">
+            <button class="menu-item bounce-hover" data-type="entry">📝 Entri Jurnal</button>
+            <button class="menu-item bounce-hover" data-type="folder">📁 Folder Baru</button>
+            <button class="menu-item bounce-hover" data-type="tag">🏷️ Tag Baru</button>
+        </div>
+    </div>
+
+    <!-- JS Terpisah -->
     <script type="module" src="./core/app.js"></script>
 </body>
 </html>
