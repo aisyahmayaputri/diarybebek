@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Quicksand', sans-serif; /* Cute, membulat, mudah dibaca */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+/* Base untuk halaman yang bisa diganti-ganti (Home, Editor, dll) */
+.view-container {
+    display: none;
+    padding: 24px;
+    min-height: 100vh;
+}
+
+.view-container.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animasi Bouncy Sesuai Permintaan */
+.bounce-hover {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.bounce-hover:hover {
+    transform: scale(1.05);
+}
+
+.bounce-hover:active {
+    transform: scale(0.95);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
