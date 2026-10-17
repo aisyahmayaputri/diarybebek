@@ -14,27 +14,55 @@
     margin-bottom: 16px;
 }
 
-.mood-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.mood-chip {
-    padding: 10px 16px;
-    border-radius: 20px;
-    background-color: var(--card-bg);
-    border: 2px solid transparent;
-    color: var(--text-main);
-    font-weight: 600;
-    font-family: inherit;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
 /* Saat mood dipilih (Bisa multi-select) */
 .mood-chip.selected {
     background-color: var(--accent-color);
     border: 2px solid var(--text-main);
     transform: scale(1.05); /* Sedikit membesar saat dipilih (bouncy feel) */
+}
+
+.scrapbook-bubble {
+    background-color: var(--card-bg);
+    border: 3px solid var(--border-color);
+    /* Bentuk Bubble Speech asimetris */
+    border-radius: 50% 50% 50% 0 / 50% 50% 50% 0;
+    padding: 40px;
+    position: relative;
+    box-shadow: 4px 4px 0px rgba(93, 64, 55, 0.1);
+}
+
+.mood-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.mood-chip {
+    background-color: var(--bg-color);
+    padding: 8px 16px;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.mood-chip.selected {
+    background-color: var(--accent-color);
+}
+
+.intensity-selector {
+    background-color: var(--bg-color);
+    border: 2px dashed var(--border-color);
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-top: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.intensity-selector.hidden {
+    display: none;
 }
