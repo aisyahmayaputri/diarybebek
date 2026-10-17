@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./features/home/home.css">
     <link rel="stylesheet" href="./features/create-menu/create-menu.css">
     <link rel="stylesheet" href="./features/mood-widget/mood-widget.css">
+    <link rel="stylesheet" href="./features/mini-calendar/mini-calendar.css">
 </head>
 <body>
 
@@ -44,6 +45,24 @@
             <div class="access-card bounce-hover">Statistik</div>
             <div class="access-card bounce-hover">Tag</div>
         </section>
+<!-- FITUR BARU: Kalender Mini -->
+      <section class="calendar-section">
+          <div class="calendar-card">
+          <div class="calendar-header">
+            <button id="prev-month" class="nav-btn bounce-hover">&lt;</button>
+            <h2 id="calendar-month-year" class="calendar-title">Oktober 2026</h2>
+            <button id="next-month" class="nav-btn bounce-hover">&gt;</button>
+        </div>
+        
+        <div class="calendar-weekdays">
+            <span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span>
+        </div>
+        
+        <div id="calendar-days" class="calendar-days">
+            <!-- Tanggal akan di-generate oleh JS -->
+        </div>
+    </div>
+</section>        
 
         <!-- Tombol Plus (Entry Baru) -->
         <button id="btn-add-new" class="fab-button bounce-hover" aria-label="Buat Entri Baru">
