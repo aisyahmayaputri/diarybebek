@@ -1,0 +1,46 @@
+/* Pengaturan Toolbar Menggambar */
+.active-toolbar {
+    display: flex;
+}
+
+.hidden-toolbar {
+    display: none !important;
+}
+
+/* Kustomisasi input tipe warna agar terlihat 'cute' dan membulat */
+.color-picker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.color-picker::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+
+.color-picker::-moz-color-swatch {
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+
+/* Indikator alat yang sedang dipilih */
+.draw-tool.active {
+    background-color: var(--accent-color);
+    border-color: var(--text-main);
+    transform: scale(1.1);
+}
+
+/* Tombol Undo/Redo saat nonaktif (kosong riwayatnya) */
+.icon-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
