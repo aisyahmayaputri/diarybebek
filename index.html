@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./features/mood-widget/mood-widget.css">
     <link rel="stylesheet" href="./features/mini-calendar/mini-calendar.css">
     <link rel="stylesheet" href="./features/entry-highlights/entry-highlights.css">
+    <link rel="stylesheet" href="./features/entry-editor/entry-editor.css">
 </head>
 <body>
 
@@ -92,6 +93,48 @@
         </button>
 
     </main>
+    <main id="editor-view" class="view-container">
+    
+    <!-- Header Editor -->
+    <header class="editor-header">
+        <button id="btn-back-home" class="icon-btn bounce-hover" aria-label="Kembali">⬅️</button>
+        <div class="editor-meta">
+            <span class="entry-date">18 Okt 2026</span>
+            <span class="entry-status">Belum disimpan</span>
+        </div>
+        <button id="btn-save-entry" class="text-btn bounce-hover">Selesai</button>
+    </header>
+
+    <!-- Area Konten (Tempat Menulis & Mencoret) -->
+    <!-- data-entry-bg digunakan untuk kustomisasi latar belakang per-entri -->
+    <div id="editor-content-area" class="editor-content" data-entry-bg="polos">
+        
+        <!-- Lapisan Teks: contenteditable="true" agar bisa diketik -->
+        <div id="text-layer" class="text-layer" contenteditable="true">
+            <h1 class="entry-title-input" data-placeholder="Judul Entri..."></h1>
+            <p class="entry-body-input" data-placeholder="Mulai menulis cerita hari ini..."></p>
+        </div>
+
+        <!-- Lapisan Coretan: Kanvas yang menimpa teks -->
+        <canvas id="draw-layer" class="draw-layer"></canvas>
+    </div>
+
+    <!-- Toolbar Bawah (Bisa digeser ke samping / horizontal scroll) -->
+    <footer class="editor-toolbar">
+        <div class="toolbar-scroll">
+            <!-- Mode Toggle -->
+            <button id="btn-toggle-draw" class="tool-btn bounce-hover">🖍️ Mode Coret</button>
+            <div class="toolbar-divider"></div>
+            <!-- Alat Teks & Tema -->
+            <button class="tool-btn bounce-hover">Aa</button>
+            <button class="tool-btn bounce-hover">🎨 Latar</button>
+            <button class="tool-btn bounce-hover">📷 Media</button>
+            <button class="tool-btn bounce-hover">⭐ Rating</button>
+            <button class="tool-btn bounce-hover">😊 Mood</button>
+        </div>
+    </footer>
+
+</main>
 
     <!-- Overlay dan Menu Pop-up Buat Baru (Berada di luar <main> agar bisa menutupi layar) -->
     <div id="create-menu-overlay" class="overlay hidden"></div>
