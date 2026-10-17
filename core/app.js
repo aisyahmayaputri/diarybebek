@@ -7,6 +7,8 @@ import { initEntryHighlights } from '../features/entry-highlights/entry-highligh
 import { initEntryEditor } from '../features/entry-editor/entry-editor.js';
 import { initCanvasDraw } from '../features/canvas-draw/canvas-draw.js';
 import { initEntryBackground } from '../features/entry-background/entry-background.js'; // IMPORT BARU
+import { initTextFormat } from '../features/text-format/text-format.js'; // IMPORT BARU
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Inisialisasi logika Halaman Home (Tanggal & Sapaan)
     initHome();
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initEntryEditor();
     initCanvasDraw();
     initEntryBackground();
+    initTextFormat();
     // 3. Inisialisasi logika Menu Buat Baru (Tombol Plus)
     initCreateMenu();
 });
